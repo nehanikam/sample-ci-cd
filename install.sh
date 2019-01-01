@@ -2,6 +2,9 @@
 
 yum update -y 
 
+# install git
+sudo yum install git -y
+
 # install jenkins 
 sudo yum remove java -y
 sudo yum install java-1.8.0-openjdk -y
@@ -19,4 +22,4 @@ sudo chkconfig jenkins on
 
 #install ansible az linux2
 sudo yum-config-manager --enable epel #amaz-linux
-yum install ansible
+yum install ansible -y
