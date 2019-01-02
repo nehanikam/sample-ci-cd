@@ -28,5 +28,6 @@ sudo yum install ansible -y
 #clone the configuration to remote
 sudo cd /tmp
 sudo mkdir /ansible-config
+sudo rm -rf sample-ci-cd
 sudo git clone https://github.com/nehanikam/sample-ci-cd.git
 sudo cp -R ./sample-ci-cd/config/*.* /ansible-config

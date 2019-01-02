@@ -2,6 +2,8 @@
   hosts: web-servers
   tasks:
     - 
+      command: sudo yum update -y
+    - 
       name: Installing httpd
       yum:
         name: httpd
