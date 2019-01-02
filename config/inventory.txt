@@ -1,0 +1,6 @@
+webserver1 ansible_host=13.127.127.237 ansible_user=centos 
+webserver2 ansible_host=13.233.165.52 ansible_user=centos 
+
+[web-servers]
+webserver1
+webserver2

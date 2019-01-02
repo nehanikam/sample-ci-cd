@@ -1,0 +1,23 @@
+- name: "Play to configure website assets on the webnode"
+  hosts: web-servers
+  tasks:
+    - 
+      name: Installing httpd
+      yum:
+        name: httpd
+        state: present
+
+    - git:
+        repo: 'https://github.com/nehanikam/static-test-website.git'
+        dest: /tmp
+        clone: yes
+        update: yes
+
+    - name: copy html file
+      copy: src=/tmp/static-test-website/src/ dest=/var/www/html/ remote_src=yes directory_mode=yes
+
+    -
+      name: Start httpd
+      service:
+        name: httpd
+        state: restarted

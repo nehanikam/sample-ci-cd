@@ -23,3 +23,10 @@ sudo chkconfig jenkins on
 #install ansible az linux2
 sudo yum-config-manager --enable epel #amaz-linux
 yum install ansible -y
+
+
+#clone the configuration to remote
+cd /tmp
+mkdir /ansible-config
+git clone https://github.com/nehanikam/sample-ci-cd.git
+cp -R ./config/*.* /ansible-config
