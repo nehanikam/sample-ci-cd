@@ -26,15 +26,7 @@ resource "aws_instance" "jenkins" {
       "sudo /tmp/install.sh"
     ]
   }
-  provisioner "file" {
-    source = "${var.PATH_TO_PRIVATE_KEY}"
-    destination = "/home/ec2-user/.ssh/id_rsa"
-  }
-  provisioner "remote-exec" {
-    inline = [
-      "sudo chmod  600  /home/ec2-user/.ssh/id_rsa"
-    ]
-  }
+  
   connection {
     user = "${var.INSTANCE_USERNAME}"
     private_key = "${file("${var.PATH_TO_PRIVATE_KEY}")}"

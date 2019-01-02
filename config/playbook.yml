@@ -9,14 +9,22 @@
         name: httpd
         state: present
 
+    - 
+      name: Installing git
+      yum:
+        name: git
+        state: present
+
+    - command: sudo rm -rf /tmp/static-test-website
+
     - git:
         repo: 'https://github.com/nehanikam/static-test-website.git'
-        dest: /tmp
+        dest: /tmp/static-test-website
         clone: yes
         update: yes
 
     - name: copy html file
-      copy: src=/tmp/static-test-website/src/ dest=/var/www/html/ remote_src=yes directory_mode=yes
+      shell: sudo cp -uR /tmp/static-test-website/src/* /var/www/html 
 
     -
       name: Start httpd
